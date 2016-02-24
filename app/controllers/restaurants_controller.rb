@@ -4,11 +4,12 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    id = params["id"]
+    id = params[:id]
     render json: Restaurant.find(id)
   end
 
   def create
-    Restaurant.create
+    r = Restaurant.create(name: params[:name], genre: params[:genre])
+    render json: r
   end
 end

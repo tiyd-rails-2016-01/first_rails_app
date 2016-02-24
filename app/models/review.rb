@@ -4,4 +4,10 @@ class Review < ActiveRecord::Base
   def self.best
     order(:stars).last
   end
+
+  def as_json(options = nil)
+    {id: id,
+     stars: stars,
+     comments: comments}
+  end
 end
