@@ -1,11 +1,10 @@
 class RestaurantsController < ApplicationController
   def index
-    render json: Restaurant.all
+    @restaurants = Restaurant.all
   end
 
   def show
-    id = params[:id]
-    render json: Restaurant.find(id)
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def create

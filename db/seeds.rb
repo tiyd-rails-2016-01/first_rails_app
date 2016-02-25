@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do
+  Restaurant.create!(name: Faker::Company.name, genre: Faker::Address.country)
+end
+
+50.times do
+  Review.create!(restaurant_id: rand(10)+1,
+      stars: rand(6),
+      comments: Faker::Hipster.paragraph
+  )
+end

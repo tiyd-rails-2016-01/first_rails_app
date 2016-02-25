@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   root 'restaurants#index'
 
+  # LEVEL 1
   post 'reviews/create'
   get 'reviews/show'
   delete 'reviews/destroy'
-
   get 'restaurants/index'
   get 'restaurants/show'
   post 'restaurants/create'
+
+  # LEVEL 2
+  get 'restaurants' => 'restaurants#index'
+
+  # LEVEL 3
+  get 'restaurants/:id' => 'restaurants#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
